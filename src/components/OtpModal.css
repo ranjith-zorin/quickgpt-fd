@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=Inter:wght@400;500&display=swap");
+
+:root {
+  --otp-page-bg: #15191d;
+  --otp-modal-bg: #161a1f;
+  --otp-border: #2a2f35;
+  --otp-input-bg: #1b2025;
+  --otp-input-border: #2c3238;
+  --otp-focus: #2f8f9d;
+  --otp-title: #e9e9e7;
+  --otp-text: #8b9095;
+  --otp-btn-bg: #6e7378;
+  --otp-btn-text: #1d2125;
+  --otp-btn-active: #2aa7b8;
+}
+
+/* ---------- Backdrop ---------- */
+.otp-backdrop.modal-backdrop {
+  --bs-backdrop-bg: #000;
+  --bs-backdrop-opacity: 0.35;
+}
+
+/* ---------- Dialog / content ---------- */
+.modal-dialog.otp-dialog {
+  --bs-modal-width: 598px;
+  width: 598px;
+  max-width: calc(100vw - 24px);
+}
+
+.otp-dialog .otp-content {
+  position: relative;
+  background-color: var(--otp-modal-bg);
+  border: 1px solid var(--otp-border);
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+
+.otp-dialog .otp-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 62px 106px 46px; /* 1px border adds to give 63 / 47 / 107 */
+}
+
+/* ---------- Close ---------- */
+.otp-dialog .otp-close.btn-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  background-size: 12px;
+  opacity: 0.55;
+  filter: invert(1) grayscale(1) brightness(0.9);
+  box-shadow: none;
+}
+.otp-dialog .otp-close.btn-close:hover {
+  opacity: 0.9;
+}
+.otp-dialog .otp-close.btn-close:focus-visible {
+  outline: 2px solid var(--otp-focus);
+  outline-offset: 4px;
+}
+
+/* ---------- Icon ---------- */
+.otp-icon {
+  width: 80px;
+  height: 80px;
+  flex: none;
+}
+.otp-icon svg {
+  display: block;
+}
+
+/* ---------- Text ---------- */
+.otp-title {
+  margin: 16px 0 0;
+  font-family: "Source Serif 4", "Tiempos Headline", Georgia, serif;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  color: var(--otp-title);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.otp-subtitle {
+  margin: 12px 0 0;
+  font-size: 14.5px;
+  line-height: 20px;
+  color: var(--otp-text);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ---------- Form ---------- */
+.otp-form {
+  width: 384px;
+  max-width: 100%;
+  margin-top: 40px;
+}
+
+.otp-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.otp-dialog .otp-input.form-control {
+  width: 48px;
+  height: 64px;
+  padding: 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--otp-title);
+  background-color: var(--otp-input-bg);
+  border: 1px solid var(--otp-input-border);
+  border-radius: 6px;
+  caret-color: var(--otp-title);
+  box-shadow: none;
+  transition:
+    border-color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.otp-dialog .otp-input.form-control:focus {
+  background-color: var(--otp-input-bg);
+  color: var(--otp-title);
+  border-color: var(--otp-focus);
+  box-shadow: 0 0 0 2px var(--otp-focus);
+  /* focused box visually grows to ~54px like the original */
+  width: 52px;
+  margin: 0 -2px;
+}
+
+/* ---------- Confirm ---------- */
+.otp-dialog .otp-confirm.btn {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--otp-btn-text);
+  background-color: var(--otp-btn-active);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: none;
+  transition: background-color 0.15s ease;
+}
+.otp-dialog .otp-confirm.btn:hover:not(:disabled) {
+  background-color: #35b6c7;
+}
+.otp-dialog .otp-confirm.btn:disabled {
+  background-color: var(--otp-btn-bg);
+  color: var(--otp-btn-text);
+  opacity: 1;
+  cursor: default;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 640px) {
+  .otp-dialog .otp-body {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .otp-subtitle {
+    white-space: normal;
+  }
+  .otp-dialog .otp-input.form-control {
+    width: 42px;
+    height: 56px;
+  }
+}
